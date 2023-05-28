@@ -197,19 +197,15 @@ const clearInput = () => {
 function deletePet(x) {
   let confirmDelete = confirm("Do you really want to delete this pet?");
   if (confirmDelete) {
-    let indexRow;
+    // thực hiện xóa ở trong này
     for (let l = 0; l < petArr.length; l++) {
-      if (petArr[l].idInput === x) {
-        indexRow = l;
-        console.log(indexRow);
-
-        document.getElementById("tbody").deleteRow(indexRow);
-        return indexRow;
-      } else true;
-      console.log(indexRow);
+      if (x === petArr[l].idInput) {
+        //xóa khỏi mảng
+        petArr.splice(l, 1);
+        renderTableData(petArr);
+      }
     }
   }
-  renderTableData();
 }
 
 // Hiển thị các thú cưng khỏe mạnh (showhealthy, show all pet)
